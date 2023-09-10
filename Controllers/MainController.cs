@@ -19,12 +19,6 @@ public class MainController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetMainPage")]
-    public IActionResult Get()
-    {
-        return File("wwwroot/index.html", "text/html");
-    }
-
     [HttpGet("api", Name = "GetApi")]
     public IActionResult GetApi()
     {
@@ -67,9 +61,13 @@ public class MainController : ControllerBase
   }
 
   [HttpPost("api/sort")]
-  public IActionResult Sort([FromBody] int[] array)
+  public IActionResult Sort([FromBody] SortRequest request)
   {
-    QuickSortService.QuickSort(array);
-    return Ok(new { array });
+    if (request.Array == null)
+    {
+      return BadRequest("The array is not valid.");
+    }
+    QuickSortService.QuickSort(request.Array);
+    return Ok(new { request.Array });
   }
 }
