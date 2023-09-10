@@ -12,7 +12,11 @@ namespace QwiikTest.Controllers;
 
 public class MainController : ControllerBase
 {
+    private const string TriangleInvalidError = "The triangle is not valid.";
+    private const string InvalidInputError = "The input is not valid.";
     private readonly ILogger<MainController> _logger;
+
+    private MainService _mainService = new MainService();
 
     public MainController(ILogger<MainController> logger)
     {
@@ -34,13 +38,13 @@ public class MainController : ControllerBase
     [HttpPost("api/triangle")]
     public IActionResult CalculateTriangle([FromBody] Triangle triangle)
     {
-        if (!TriangleService.CheckValidity(triangle))
+        if (!_mainService.CheckValidity(triangle))
         {
-            return BadRequest("The triangle is not valid.");
+            return BadRequest(TriangleInvalidError);
         }
 
-        var perimeter = TriangleService.CalculatePerimeter(triangle);
-        var area = TriangleService.CalculateArea(triangle);
+        var perimeter = _mainService.CalculatePerimeter(triangle);
+        var area = _mainService.CalculateArea(triangle);
 
         return Ok(new { perimeter, area });
     }
@@ -52,10 +56,10 @@ public class MainController : ControllerBase
   {
     if (n < 0)
     {
-      return BadRequest("The number is not valid.");
+      return BadRequest(InvalidInputError);
     }
     
-    var fibonacci = FibonacciService.GetFibonacci(n);
+    var fibonacci = _mainService.GetFibonacci(n);
     
     return Ok(new { fibonacci });
   }
@@ -65,9 +69,9 @@ public class MainController : ControllerBase
   {
     if (request.Array == null)
     {
-      return BadRequest("The array is not valid.");
+      return BadRequest(InvalidInputError);
     }
-    QuickSortService.QuickSort(request.Array);
+    _mainService.QuickSort(request.Array);
     return Ok(new { request.Array });
   }
 }

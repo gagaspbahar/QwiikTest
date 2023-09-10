@@ -24,3 +24,8 @@ This is a function to accept an integer value n and returns Fibonacci sequence u
 
 This is a function to accept an array of integers and returns the sorted array.
 
+## Other Information
+
+### Swagger
+
+When running the app, Swagger will be accessible in the following URL: `http://localhost:5062/swagger/index.html`

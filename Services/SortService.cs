@@ -1,5 +1,6 @@
 using System;
 
+namespace Services;
 public class QuickSortService
 {
   public static void QuickSort(int[] array)

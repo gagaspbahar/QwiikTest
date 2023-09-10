@@ -3,7 +3,7 @@ using Models;
 
 namespace Services;
 public class TriangleService {
-  public static Boolean CheckValidity(Triangle triangle) {
+  public static bool CheckValidity(Triangle triangle) {
     if (triangle.A <= 0 || triangle.B <= 0 || triangle.C <= 0) {
       return false;
     }
