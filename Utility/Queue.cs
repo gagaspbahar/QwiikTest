@@ -97,3 +97,11 @@ namespace Utility {
     }
   }
 }
+
+// Usage Suggestions
+
+// Message Queue
+// Queues can be used for Message Queue, where a series of services will push messages and a message broker will pull messages from the queue and process them.
+
+// Task Scheduling
+// A version of Queue, more specifically priority queue (a queue where the order is determined by an arbitrary value) can be used for task scheduling, where tasks with higher priority will be executed first.

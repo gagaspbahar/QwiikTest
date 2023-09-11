@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "1a8bc00c-70b4-4247-bf0b-ff550c7d6e3b",
+		"name": "Qwiik",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20455642"
+	},
+	"item": [
+		{
+			"name": "Base API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/api/",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Triangle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a\": 1,\n    \"b\": 1,\n    \"c\": 15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/triangle",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"triangle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sort Array",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

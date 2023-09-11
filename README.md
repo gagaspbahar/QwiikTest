@@ -29,3 +29,8 @@ This is a function to accept an array of integers and returns the sorted array.
 ### Swagger
 
 When running the app, Swagger will be accessible in the following URL: `http://localhost:5062/swagger/index.html`
+
+### Postman
+
+Postman collection is included in this repository.
+
